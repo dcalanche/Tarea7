@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante Gourmet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Sabor & Tradición</h1>
+        <p>Reserva tu mesa en línea</p>
+    </header>
+
+    <main class="container">
+        <!-- Modificación 1: Formulario de reserva dinámico -->
+        <section class="card">
+            <h2>Hacer una Reserva</h2>
+            <form id="reserva-form">
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre" required placeholder="Ej. Juan Pérez">
+                </div>
+                
+                <div class="form-group">
+                    <label for="personas">Número de Personas:</label>
+                    <input type="number" id="personas" min="1" max="20" required placeholder="1-20">
+                </div>
+
+                <div class="form-group">
+                    <label for="fecha">Fecha y Hora:</label>
+                    <input type="datetime-local" id="fecha" required>
+                </div>
+
+                <button type="submit" class="btn primary">Guardar Reserva</button>
+            </form>
+        </section>
+
+        <!-- Botones requeridos para interactuar con IndexedDB -->
+        <section class="card">
+            <h2>Gestión de Reservas</h2>
+            <div class="button-group">
+                <button id="btn-mostrar" class="btn secondary">Mostrar Datos</button>
+                <button id="btn-limpiar" class="btn danger">Limpiar Todo</button>
+            </div>
+            
+            <div id="lista-reservas" class="reservas-container">
+                <!-- Modificación 2: Las reservas se renderizan como tarjetas estilizadas dinámicamente -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Modificación 3: Pie de página interactivo con indicador de estado -->
+    <footer>
+        <p>&copy; 2026 Restaurante Sabor & Tradición | <span id="estado-db">Conectando a IndexedDB...</span></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
