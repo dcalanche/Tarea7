@@ -28,7 +28,7 @@ header {
     background: white;
     padding: 1.5rem;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 2rem;
 }
 
@@ -49,16 +49,19 @@ label {
     font-weight: bold;
 }
 
-input {
+input, select.form-input {
     width: 100%;
     padding: 0.75rem;
     border: 1px solid #ccc;
     border-radius: 4px;
+    background-color: white;
+    font-size: 1rem;
 }
 
 .button-group {
     display: flex;
     gap: 1rem;
+    margin-top: 1rem;
     margin-bottom: 1rem;
 }
 
@@ -71,20 +74,38 @@ input {
     transition: background 0.3s;
 }
 
-.btn.primary { background-color: #27ae60; color: white; }
-.btn.primary:hover { background-color: #219150; }
+.btn.primary {
+    background-color: #27ae60;
+    color: white;
+}
 
-.btn.secondary { background-color: #2980b9; color: white; }
-.btn.secondary:hover { background-color: #1f6391; }
+.btn.primary:hover {
+    background-color: #219150;
+}
 
-.btn.danger { background-color: #c0392b; color: white; }
-.btn.danger:hover { background-color: #962d22; }
+.btn.secondary {
+    background-color: #2980b9;
+    color: white;
+}
+
+.btn.secondary:hover {
+    background-color: #1f6391;
+}
+
+.btn.danger {
+    background-color: #c0392b;
+    color: white;
+}
+
+.btn.danger:hover {
+    background-color: #962d22;
+}
 
 .reserva-item {
     background: #ecf0f1;
-    border-left: 4px solid #e74c3c;
+    border-left: 5px solid #e74c3c;
     padding: 1rem;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
     border-radius: 4px;
 }
 

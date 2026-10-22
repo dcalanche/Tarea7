@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurante Gourmet</title>
+    <title>Restaurante Gourmet - Reservas</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,15 +13,29 @@
     </header>
 
     <main class="container">
-        <!-- Modificación 1: Formulario de reserva dinámico -->
+        <!-- Formulario de reserva -->
         <section class="card">
-            <h2>Hacer una Reserva</h2>
+            <h2>Hacer o Modificar una Reserva</h2>
             <form id="reserva-form">
+                <!-- Campo oculto para manejar la edición -->
+                <input type="hidden" id="id-reserva">
+
                 <div class="form-group">
                     <label for="nombre">Nombre Completo:</label>
                     <input type="text" id="nombre" required placeholder="Ej. Juan Pérez">
                 </div>
                 
+                <div class="form-group">
+                    <label for="area">Área / Ubicación de la Mesa:</label>
+                    <select id="area" required class="form-input">
+                        <option value="" disabled selected>Selecciona un área...</option>
+                        <option value="Terraza">Terraza (Al aire libre)</option>
+                        <option value="Salón Principal">Salón Principal</option>
+                        <option value="Área VIP">Área VIP</option>
+                        <option value="Barra / Barra Alta">Barra / Barra Alta</option>
+                    </select>
+                </div>
+
                 <div class="form-group">
                     <label for="personas">Número de Personas:</label>
                     <input type="number" id="personas" min="1" max="20" required placeholder="1-20">
@@ -32,11 +46,14 @@
                     <input type="datetime-local" id="fecha" required>
                 </div>
 
-                <button type="submit" class="btn primary">Guardar Reserva</button>
+                <div class="button-group">
+                    <button type="submit" id="btn-guardar" class="btn primary">Guardar Reserva</button>
+                    <button type="button" id="btn-cancelar" class="btn secondary" style="display: none;">Cancelar Edición</button>
+                </div>
             </form>
         </section>
 
-        <!-- Botones requeridos para interactuar con IndexedDB -->
+        <!-- Sección para visualizar y borrar datos -->
         <section class="card">
             <h2>Gestión de Reservas</h2>
             <div class="button-group">
@@ -45,14 +62,13 @@
             </div>
             
             <div id="lista-reservas" class="reservas-container">
-                <!-- Modificación 2: Las reservas se renderizan como tarjetas estilizadas dinámicamente -->
+                <!-- Las reservas cargadas mediante JS aparecerán aquí -->
             </div>
         </section>
     </main>
 
-    <!-- Modificación 3: Pie de página interactivo con indicador de estado -->
     <footer>
-        <p>&copy; 2026 Restaurante Sabor & Tradición | <span id="estado-db">Conectando a IndexedDB...</span></p>
+        <p>&copy; 2026 Restaurante Sabor & Tradición | Estado DB: <span id="estado-db">Conectando...</span></p>
     </footer>
 
     <script src="script.js"></script>
